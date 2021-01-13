@@ -23,8 +23,8 @@
             ay : 0,
             cor: "white",
             desenhar: desenharElemento,
-            mover: moverElemento
-        };
+            mover: moverElemento,
+            controlar: perseguirAlvo
         
         let e = {
             x : 300,
@@ -52,9 +52,8 @@
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             //Controladores
-            e.ax = 0.5*(p.x - e.x) - 0.2*e.vx;
-            e.ay = 0.5*(p.y - e.y) - 0.2*e.vy;
-
+            //e.controlar({x: 250, y: 120});
+            e.controlar(p);
             //Atualiza dinâmica dos estados
             p.mover();
             e.mover();
@@ -76,6 +75,14 @@
         function desenharElemento(){
             ctx.fillStyle = this.cor;
             ctx.fillRect(this.x, this.y, 20, 20);
+        }
+        function perseguirAlvo(alvo){
+            this.ax = 0.5*(alvo.x - e.x) - 0.2*e.vx;
+            this.ay = 0.5*(alvo.y - e.y) - 0.2*e.vy;
+        }
+        function evitarAlvo(alvo){
+            this.ax = -0.5*(alvo.x - e.x) - 0.2*e.vx;
+            this.ay = -0.5*(alvo.y - e.y) - 0.2*e.vy;
         }
 
         addEventListener("keydown", teclaPressionada);
