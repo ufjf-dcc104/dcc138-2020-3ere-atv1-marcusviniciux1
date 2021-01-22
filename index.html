@@ -27,12 +27,12 @@
         };
         
         const sprites = [];
-        for (let ne = 0; ne < 1; ne++) {
+        for (let ne = 0; ne < 20; ne++) {
             let e = {
-                x : 300,
+                x : canvas.width * Math.random(),
                 vx : 0,
                 ax : 0,
-                y : 200,
+                y : canvas.height * Math.random(),
                 vy : 0,
                 ay : 0,
                 cor: "blue",
