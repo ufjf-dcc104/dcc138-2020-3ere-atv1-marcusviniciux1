@@ -55,10 +55,6 @@
             //Desenha fundo
             ctx.fillStyle = "black";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            //Atualiza estado
-            x = x + 10*dt;
-            y = 150 + 5000*Math.cos(t/500)*dt;
             
             p.mover();
             p.desenhar();
